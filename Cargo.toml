@@ -1,0 +1,21 @@
+[package]
+name = "rust-mcp-server"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+description = "Read-only MCP server: list files, read text files and show git history of one sandboxed project directory"
+license = "MIT"
+repository = "https://github.com/yakim-nick/rust-mcp-server"
+keywords = ["mcp", "model-context-protocol", "ai", "server"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+rmcp = { version = "3.10.0", features = ["server", "transport-io", "macros", "schemars"] }
+schemars = "1.2.3"
+serde = { version = "1.0.229", features = ["derive"] }
+tokio = { version = "1.54.1", features = ["macros", "rt-multi-thread", "io-std"] }
+
+[dev-dependencies]
+rmcp = { version = "3.10.0", features = ["client", "server", "transport-async-rw", "macros", "schemars"] }
+serde_json = "1.0.154"
+tempfile = "3.27.0"
